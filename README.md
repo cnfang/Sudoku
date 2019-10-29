@@ -26,7 +26,7 @@ go to pom.xml file -> add
    <maven.compiler.target>1.8</maven.compiler.target>
 </properties>
 ```
-Refer from [stackoverflow] (https://stackoverflow.com/questions/28509928/java-version-automatically-change-to-java-1-5-after-maven-update)
+Refer from [stackoverflow](https://stackoverflow.com/questions/28509928/java-version-automatically-change-to-java-1-5-after-maven-update)
 
 ### Step 3: Update JUnit
 default setting of testing framework is JUnit 1.4, way to update to JUnit 1.5
@@ -39,7 +39,7 @@ go to pom.xml file -> modify dependence as below
     <scope>test</scope>
 </dependency>
 ``` 
-Refer from [maven apache] (https://maven.apache.org/surefire/maven-surefire-plugin/examples/junit-platform.html)
+Refer from [maven apache](https://maven.apache.org/surefire/maven-surefire-plugin/examples/junit-platform.html)
 
 ### Step 4: refresh project setting
 right click on the project -> Maven -> update project...
@@ -71,7 +71,7 @@ MockitoAnnotations.initMocks(this) is to initialized all the mock objects
 @Before, @After are two annotations in JUnit, @Before will be executed each time before @Test function and @After is executed everytime after @Test function
 ```
 
-[Mockito tutorial] (https://dzone.com/articles/a-guide-to-mocking-with-mockito)
+[Mockito tutorial](https://dzone.com/articles/a-guide-to-mocking-with-mockito)
 
 
 
