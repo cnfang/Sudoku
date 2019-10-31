@@ -51,11 +51,9 @@ A new Project193Test.java is created under src/test/java
 you're all set, start writing testing function
 
 ### Step 6: add mock object if required
-if the class to be tested has certain dependence with other class, to make things easier we could create a mock object
+if the class to be tested has certain dependence with other class, to make testing easier we could create a mock object
 just focus on the class we'd like to test.
-"SudokuServiceTest.java" shows an example of using Mockito to create a mocking object. SudokuService is the class to be tested. BackgroundCheck is its
-dependence. It may take a while to really get back from the really database, or query itself is expensive. To avoid querying the database each time we doing the
-unit test, a mocking object comes to help. 
+"SudokuServiceTest.java" shows an example of using Mockito to create a mocking object. SudokuService is the class to be tested. BackgroundCheck is its dependence. It may take a while to get back from a database, or query itself is expensive. In such cases, a mocking object comes to help.
 
 Details on Mockito, please check [Mockito](https://javadoc.io/static/org.mockito/mockito-core/3.1.0/org/mockito/Mockito.html)
 
@@ -65,9 +63,8 @@ right click on "Project193Test.java" -> Run as -> JUnit test
 
 ## Reference & Note
 ```
-@Mock is an annotation in Mockito to idicate the object to be mocked (usually is the dependeny class of to-be-tested class)
-@InjectMocks is an annotation in Mockito to idicate the object to be injected with mock object (usually is the class to-be-tested)
-MockitoAnnotations.initMocks(this) is to initialized all the mock objects
+@Mock is an annotation in Mockito to idicate the object to be mocked (usually is the dependeny class of to-be-tested class) \n
+@InjectMocks is an annotation in Mockito to idicate the object to be injected with mock object (usually is the class to-be-tested) MockitoAnnotations.initMocks(this) is to initialized all the mock objects \n
 @Before, @After are two annotations in JUnit, @Before will be executed each time before @Test function and @After is executed everytime after @Test function
 ```
 
