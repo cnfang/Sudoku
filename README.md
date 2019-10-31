@@ -66,9 +66,11 @@ right click on "Project193Test.java" -> Run as -> JUnit test
 @Mock is an annotation in Mockito to idicate the object to be mocked (usually is the dependeny class of to-be-tested class) \n
 @InjectMocks is an annotation in Mockito to idicate the object to be injected with mock object (usually is the class to-be-tested) MockitoAnnotations.initMocks(this) is to initialized all the mock objects \n
 @Before, @After are two annotations in JUnit, @Before will be executed each time before @Test function and @After is executed everytime after @Test function
+@BeforeAll, @AfterAll are two annotations. It's executed before/after running all the tests for avoid multiple times of common expensive operations.
 ```
 
 [Mockito tutorial](https://dzone.com/articles/a-guide-to-mocking-with-mockito)
+[JUint tutorial](https://www.baeldung.com/junit-before-beforeclass-beforeeach-beforeall)
 
 
 
