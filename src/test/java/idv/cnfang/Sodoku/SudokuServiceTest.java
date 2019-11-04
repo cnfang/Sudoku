@@ -1,10 +1,12 @@
 package idv.cnfang.Sodoku;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertTrue;
 
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.*;
 import static org.mockito.Mockito.*;
 
@@ -19,7 +21,7 @@ public class SudokuServiceTest {
     
     private char[][]map;
     
-    @Before
+    @BeforeEach
     public void init() {
         MockitoAnnotations.initMocks(this);
         map = new char[][] {
@@ -36,7 +38,7 @@ public class SudokuServiceTest {
     }
     
     @Test
-    public void WhenBoardIsNotValid_ThenFales() {
+    public void test_CheckValidBoardWithoutCheckingDataBase() {
         int id = 5; 
         // we wanna check if isValidSudoku functons well without really checking the database
         // assuming user id exists in the database, how does isValidSudoku perform? is it like what we expect?
@@ -45,7 +47,7 @@ public class SudokuServiceTest {
     }
     
     @Test
-    public void SolvedSudoku() {
+    public void test_SolvedSudoku() {
         service.solveSudoku(map);
         char [][]expected = {{'5','3','4','6','7','8','9','1','2'},
                              {'6','7','2','1','9','5','3','4','8'},
@@ -57,6 +59,12 @@ public class SudokuServiceTest {
                              {'2','8','7','4','1','9','6','3','5'},
                              {'3','4','5','2','8','6','1','7','9'}};
         assertArrayEquals(expected, map);
+    }
+    
+    @Test
+    public void test_ExpectedNullPointerException() {
+        char [][]fakemap = null;
+        assertThrows(NullPointerException.class, ()->service.solveSudoku(fakemap));
     }
 
 }
