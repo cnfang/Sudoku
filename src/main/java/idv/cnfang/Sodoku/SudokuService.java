@@ -2,6 +2,7 @@ package idv.cnfang.Sodoku;
 
 import java.util.LinkedList;
 import java.util.List;
+import static java.util.Objects.requireNonNull;
 
 /**
 Leetcode <Problem 193> Hash Table: Valid Sudoku
@@ -87,6 +88,7 @@ public class SudokuService {
     
     
     public void solveSudoku(char[][] board) {
+        requireNonNull(board);
         
         List<Cell> emptyCell = new LinkedList<Cell>();
         
