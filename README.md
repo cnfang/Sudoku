@@ -30,15 +30,32 @@ Refer from [stackoverflow](https://stackoverflow.com/questions/28509928/java-ver
 
 ### Step 3: Update JUnit
 default setting of testing framework is JUnit 1.4, way to update to JUnit 1.5
-go to pom.xml file -> modify dependence as below
+go to pom.xml file -> add Dependencies as below
 ```
 <dependency>
     <groupId>org.junit.jupiter</groupId>
+    <artifactId>junit-jupiter-params</artifactId>
+    <version>5.5.1</version>
+</dependency>
+    
+<dependency>
+    <groupId>org.junit.jupiter</groupId>
     <artifactId>junit-jupiter-engine</artifactId>
-    <version>5.4.0</version>
-    <scope>test</scope>
+    <version>5.5.2</version>
+</dependency>
+
+<dependency>
+    <groupId>org.junit.platform</groupId>
+    <artifactId>junit-platform-runner</artifactId>
+    <version>1.5.2</version>
 </dependency>
 ``` 
+
+junit-jupiter-engine module provides extension model for writing tests in JUnit 5 and a TestEngine for running Jupiter based tests on the platform (Eclipse in this case).
+junit-platform module defines Launcher APIs which are used by IDEs and build tools to launch the framework.
+junit-jupiter-parames allows us to perform parameterized tests
+
+more details on JUnit 5 architechure, please see [JUnit 5 Architecture](https://blog.codefx.org/design/architecture/junit-5-architecture-jupiter/)
 Refer from [maven apache](https://maven.apache.org/surefire/maven-surefire-plugin/examples/junit-platform.html)
 
 ### Step 4: refresh project setting
