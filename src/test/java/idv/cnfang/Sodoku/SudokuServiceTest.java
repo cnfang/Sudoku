@@ -3,12 +3,16 @@ package idv.cnfang.Sodoku;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTimeout;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.NullSource;
 import org.mockito.*;
 import static org.mockito.Mockito.*;
+
+import java.time.Duration;
 
 
 public class SudokuServiceTest {
@@ -19,10 +23,11 @@ public class SudokuServiceTest {
     @InjectMocks
     SudokuService service;
     
+    
     private char[][]map;
     
     @BeforeEach
-    public void init() {
+    public void setUp() {
         MockitoAnnotations.initMocks(this);
         map = new char[][] {
                             {'5','3','.','.','7','.','.','.','.'},
@@ -37,6 +42,9 @@ public class SudokuServiceTest {
                           };
     }
     
+    /**
+     * an example of using mock object along with (when then Return) function  
+     */
     @Test
     public void test_CheckValidBoardWithoutCheckingDataBase() {
         int id = 5; 
@@ -61,10 +69,24 @@ public class SudokuServiceTest {
         assertArrayEquals(expected, map);
     }
     
+    /**
+     * an example of using @ParameterizedTest and @NullSource to catch exception
+     * more on @ParameterizedTest, please see LeetcodeCollection/src/.../Problem240.java and Problem279.java
+     * @param mockmap
+     */
+    @ParameterizedTest
+    @NullSource
+    public void test_ExpectedNullPointerException(char [][]mockmap) {
+        assertThrows(NullPointerException.class, ()->service.solveSudoku(mockmap));
+    }
+    
+    
+    /**
+     * an example of using timeout function
+     */
     @Test
-    public void test_ExpectedNullPointerException() {
-        char [][]fakemap = null;
-        assertThrows(NullPointerException.class, ()->service.solveSudoku(fakemap));
+    public void test_ExpectedTimeNotExceed10Ms() {
+        assertTimeout(Duration.ofMillis(10), ()->service.solveSudoku(map));
     }
 
 }
