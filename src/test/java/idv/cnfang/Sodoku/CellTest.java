@@ -6,6 +6,9 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.IsNull.notNullValue;
+
 class CellTest {
 
     Cell cell;
@@ -30,6 +33,14 @@ class CellTest {
     void testGetCol() {
         System.out.println("col test");
         assertEquals(5, cell.getCol());
+    }
+    
+    /**
+     * an example of using hamcrest framework
+     */
+    @Test
+    void testHamcrestNotNullValue() {
+        assertThat(cell.getCol(), notNullValue());
     }
 
 }
