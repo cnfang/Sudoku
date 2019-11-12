@@ -14,13 +14,11 @@ class CellTest {
     Cell cell;
     @BeforeEach
     void setUp() throws Exception {
-        System.out.println("before");
         cell = new Cell(2, 5);
     }
 
     @AfterEach
     void tearDown() throws Exception {
-        System.out.println("after");
     }
 
     @Test

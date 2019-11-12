@@ -6,8 +6,8 @@ import org.junit.platform.suite.api.SelectClasses;
 import org.junit.runner.RunWith;
 
 /**
- * 
- * This is @SelectClasses test that allows performing tests across different classes
+ * JUnit 5 based suit testing
+ * This is @SelectClasses test that allows performing tests across different classes 
  *
  */
 
